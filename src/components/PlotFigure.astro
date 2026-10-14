@@ -3,7 +3,15 @@ import * as Plot from "@observablehq/plot";
 import { JSDOM } from "jsdom";
 const { options } = Astro.props;
 
-const plot = Plot.plot({ ...options, document: new JSDOM("").window.document });
+const ariaLabel =
+    options.ariaLabel ??
+    ([options.title, options.subtitle].filter(Boolean).join(". ") ||
+        "Graphique de données");
+const plot = Plot.plot({
+    ...options,
+    ariaLabel,
+    document: new JSDOM("").window.document,
+});
 ---
 
-<div set:html={plot.outerHTML} />
+<div class="plot-shell" set:html={plot.outerHTML} />
