@@ -82,6 +82,46 @@ p {
     box-shadow: 0 1rem 2.5rem rgb(23 35 33 / 0.06);
 }
 
+.map-container {
+    min-height: 37.5rem;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    background: var(--color-surface);
+    box-shadow: 0 1rem 2.5rem rgb(23 35 33 / 0.06);
+}
+
+.population-map {
+    min-height: 35rem;
+}
+
+.map-filters {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-block: 1.5rem;
+}
+
+.map-filters label {
+    display: grid;
+    gap: 0.4rem;
+    color: var(--color-muted);
+    font-weight: 700;
+}
+
+.map-filters select {
+    min-width: 0;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 0.45rem;
+    background: var(--color-surface);
+    padding: 0.6rem 0.75rem;
+    color: var(--color-ink);
+}
+
+.map-summary {
+    margin-block: 0 0.75rem;
+}
+
 .plot-shell figure {
     min-width: min(100%, 34rem);
     margin: 0;
@@ -169,5 +209,14 @@ p {
 
     .plot-shell figure {
         min-width: 30rem;
+    }
+
+    .map-filters {
+        grid-template-columns: 1fr;
+    }
+
+    .map-container,
+    .population-map {
+        min-height: 30rem;
     }
 }
